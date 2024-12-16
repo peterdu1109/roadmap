@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Plus, LogOut } from 'lucide-react';
 import { RoadmapContainer } from '../components/roadmap/RoadmapContainer';
 import { RoadmapItemModal } from '../components/admin/RoadmapItemModal';
-import { ImageUploader } from '../components/admin/ImageUploader';
 import { useRoadmapStore } from '../store/roadmapStore';
 import { useAuthStore } from '../store/authStore';
 import { useNavigate } from 'react-router-dom';
@@ -48,7 +47,7 @@ export function AdminDashboard() {
   };
 
   return (
-    <div>
+    <>
       <div className="max-w-7xl mx-auto px-4 py-6 flex justify-between items-center">
         <h1 className="text-2xl font-bold">Admin Dashboard</h1>
         <div className="flex gap-4">
@@ -69,9 +68,6 @@ export function AdminDashboard() {
         </div>
       </div>
 
-      <h2>Upload Images</h2>
-      <ImageUploader />
-
       <RoadmapContainer
         items={items}
         isAdmin={true}
@@ -89,6 +85,6 @@ export function AdminDashboard() {
         initialData={editingItem || undefined}
         title={editingItem ? 'Edit Roadmap Item' : 'Add New Roadmap Item'}
       />
-    </div>
+    </>
   );
 }
